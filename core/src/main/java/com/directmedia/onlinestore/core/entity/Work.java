@@ -10,10 +10,11 @@ package com.directmedia.onlinestore.core.entity;
  * @author User
  */
 public class Work {
+    private long id;
     private String title;
     private String genre;
     private int release;
-    private String summury;
+    private String summary;
     private Artist mainArtist;
 
     public Work() {
@@ -47,11 +48,11 @@ public class Work {
         this.release = release;
     }
 
-    public String getSummury() {
-        return summury;
+    public String getSummary() {
+        return summary;
     }
-    public void setSummury(String summury) {
-        this.summury = summury;
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
     public Artist getMainArtist() {
@@ -59,6 +60,14 @@ public class Work {
     }
     public void setMainArtist(Artist mainArtist) {
         this.mainArtist = mainArtist;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
     
     

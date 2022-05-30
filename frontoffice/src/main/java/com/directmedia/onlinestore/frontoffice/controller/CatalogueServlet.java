@@ -47,13 +47,17 @@ public class CatalogueServlet extends HttpServlet {
             bad.setRelease(1987);
             leGendarmeDeSaintTropez.setRelease(1964);
 
-            minorityReport.setSummury("Minority report place le spectateur dans un futur proche cyber punk, une dystopie dont le cardre est a Washington de 2054 oû des êtres humains mutants, les precoqs peuvent prédire les crimes");
-            bad.setSummury("Bad est le septième album de Michael Jackson et son troisième opus solo chez Epic/Sony et le dernier album co-produit par Quincy Jones. C,est l'un des albums les plus vendus de l'histoire de celui qu'on surnomme le roi de la pop");
-            leGendarmeDeSaintTropez.setSummury("Le film raconte les aventures de Ludovic Cruchot, un gendarme très service-service muté dans la cité balnéaire de Saint-Tropez, sur la côte d'azure avec le grade de marechal");
+            minorityReport.setSummary("Minority report place le spectateur dans un futur proche cyber punk, une dystopie dont le cardre est a Washington de 2054 oû des êtres humains mutants, les precoqs peuvent prédire les crimes");
+            bad.setSummary("Bad est le septième album de Michael Jackson et son troisième opus solo chez Epic/Sony et le dernier album co-produit par Quincy Jones. C,est l'un des albums les plus vendus de l'histoire de celui qu'on surnomme le roi de la pop");
+            leGendarmeDeSaintTropez.setSummary("Le film raconte les aventures de Ludovic Cruchot, un gendarme très service-service muté dans la cité balnéaire de Saint-Tropez, sur la côte d'azure avec le grade de marechal");
 
             minorityReport.setGenre("Science fiction");
             bad.setGenre("Pop");
             leGendarmeDeSaintTropez.setGenre("Comedie");
+            
+            minorityReport.setId(1);
+            bad.setId(2);
+            leGendarmeDeSaintTropez.setId(3);
 
             Catalogue.listOfWork.add(minorityReport);
             Catalogue.listOfWork.add(bad);
@@ -63,7 +67,7 @@ public class CatalogueServlet extends HttpServlet {
             out.print("<HTML><BODY><h1>Oeuvres au catalogue</h1></BR></BR></BODY></HTML>");
 
             for (Work work: Catalogue.listOfWork ){
-              out.println(work.getTitle()+" ("+work.getRelease()+")</BR>");
+              out.println("<a href =\"work-details?id="+work.getId()+"\">"+work.getTitle()+" ("+work.getRelease() + ")</a></BR>");
         }
         
         out.print("<BODY></BODY>");

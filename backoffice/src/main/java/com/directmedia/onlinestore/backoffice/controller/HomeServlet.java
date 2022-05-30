@@ -31,11 +31,7 @@ public class HomeServlet extends HttpServlet {
         
         out.print("<a href=\"catalogue\">Acces au catalogue</a>");
         out.print("</BODY></HTML>");
-            
-       
-            
+                  
     }
-
-    
 
 }
