@@ -10,21 +10,24 @@ package com.directmedia.onlinestore.core.entity;
  * @author User
  */
 public class Work {
+    
+    private static int lastId;
+    
+       public Work() {
+        this.id=lastId++;
+            }
+
+       public Work(String title) {
+        this();                 // J'ai juste fait appel au this du constructeur sans parametre de work; 
+        this.title = title;
+    }
+    
     private long id;
     private String title;
     private String genre;
     private int release;
     private String summary;
     private Artist mainArtist;
-
-    public Work() {
-    }
-
-    public Work(String title) {
-        this.title = title;
-    }
-    
-    
     
 
     public String getTitle() {

@@ -54,10 +54,6 @@ public class CatalogueServlet extends HttpServlet {
             minorityReport.setGenre("Science fiction");
             bad.setGenre("Pop");
             leGendarmeDeSaintTropez.setGenre("Comedie");
-            
-            minorityReport.setId(1);
-            bad.setId(2);
-            leGendarmeDeSaintTropez.setId(3);
 
             Catalogue.listOfWork.add(minorityReport);
             Catalogue.listOfWork.add(bad);

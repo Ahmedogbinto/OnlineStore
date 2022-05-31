@@ -5,6 +5,7 @@
  */
 package com.directmedia.onlinestore.frontoffice.controller;
 
+import com.directmedia.onlinestore.core.entity.Artist;
 import com.directmedia.onlinestore.core.entity.Catalogue;
 import com.directmedia.onlinestore.core.entity.Work;
 import java.io.IOException;
@@ -30,7 +31,9 @@ public class WorkDetailsServlet extends HttpServlet {
         
         // rechercher dans le catalogue quel film possede cet id
         // Si on utilise Java8, on utilisisera la Syntaxe de l'API stream
+        
         // Work work=Catalogue.listOfWork.stream().filter(w -> w.getId()==Long.parseLong(id)).findFirst().get();
+        
         // Cette ligne me permet rechercher l'oeuvre dont l'identité  a ete recu en parametre.
         // Cette syntaxe pourrait gener de multiple exception si cette identifiant nexiste pas dans le catalogue.
         
@@ -49,7 +52,7 @@ public class WorkDetailsServlet extends HttpServlet {
          out.print("Année de parution: "+work.getRelease()+"<BR/>");
          out.print("Genre: "+work.getGenre()+" <BR/>");
          out.print("Artiste: "+work.getMainArtist()+"<BR/>");
-         out.print("Résumé: "+work.getSummary()+"<BR/>");
+         out.print("Résumé: "+work.getSummary()+ "<BR/>");
          out.print("<BODY><HTML>");
      
     }
