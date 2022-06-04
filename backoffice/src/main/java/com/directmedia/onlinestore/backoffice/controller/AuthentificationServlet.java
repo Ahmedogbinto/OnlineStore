@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import static javax.swing.text.html.HTML.Tag.BR;
 /**
  *
@@ -32,6 +33,10 @@ public class AuthentificationServlet extends HttpServlet {
         
         if(login.equals("michel") && password.equals("12345") || login.equals("caroline") && password.equals("abcdedf")){
            out.print("<a href=\"home\"> Accés validé à la page d'accueil </a>");
+           
+          // Recuperation de de la session en cas de succes
+            HttpSession session=request.getSession();
+            session.setAttribute("login", login);
         }   
         else{
             out.print("Login ou mot de passe erronés <BR/>");
