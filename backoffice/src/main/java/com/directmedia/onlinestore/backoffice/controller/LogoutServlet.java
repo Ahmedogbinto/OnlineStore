@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.directmedia.onlinestore.frontoffice.controller;
+package com.directmedia.onlinestore.backoffice.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,20 +17,20 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author User
  */
-@WebServlet(name = "HomeServlet", urlPatterns = {"/home"})
-public class HomeServlet extends HttpServlet {
+@WebServlet(name = "LogoutServlet", urlPatterns = {"/logout"})
+public class LogoutServlet extends HttpServlet {
 
-    @Override
+    
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter out=response.getWriter();
-        out.print("<HTML><BODY><h1>Onlinestore, votre boutique multimedia en ligne</h1>");
+        response.setContentType("text/HTML");
+        // Suppression de la session
+        request.getSession().invalidate();
         
-        out.print("<a href=\"catalogue\">Acces au catalogue</a>");
-        out.print("</BODY></HTML>");
-            
+        PrintWriter out=response.getWriter();
+        out.print("<HTML><BODY>Vous avez été deconnecté avec succès, cliquez <a href=\"login.html\">ici</a> pour vous reconnectez à nouveau");
+        out.print("</BODY></HTML>");   
+    }
     }
 
     
-
-}

@@ -20,16 +20,15 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "HomeServlet", urlPatterns = {"/home"})
 public class HomeServlet extends HttpServlet {
 
-
-   
-  
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter out=response.getWriter();
-        out.print("<HTML><BODY><h1>OnlineStore - Gestion de la boutique</h1>");
-        out.print("Bonjour "+request.getSession().getAttribute("login")+"<BR/>");
         
+        response.setContentType("text/HTML");
+        PrintWriter out=response.getWriter();
+        
+        out.print("<HTML><BODY><h1>OnlineStore - Gestion de la boutique</h1>");
+        out.print("Bonjour "+request.getSession().getAttribute("login")+" (<a href=\"logout\">Déconnexion</a>)<BR/>");
         out.print("<a href=\"add-work-form.html\">Ajouter une oeuvre au catalogue</a><BR/>");
         out.print("<a href=\"catalogue\">Acces au catalogue</a>");
         out.print("</BODY></HTML>");
