@@ -13,6 +13,6 @@
     </head>
     <body>
         <h1>Onlinestore, votre boutique multimedia en ligne</h1>
-        <a href="catalogue"> Acces au catalogue</a>
+        <a href="catalogue.jsp"> Acces au catalogue</a>
     </body>
 </html>
