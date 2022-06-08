@@ -32,7 +32,7 @@ public class AuthentificationServlet extends HttpServlet {
         out.print("<HTML><BODY>");
         
         if(login.equals("michel") && password.equals("12345") || login.equals("caroline") && password.equals("abcdedf")){
-           out.print("<a href=\"home\"> Accés validé à la page d'accueil </a>");
+           out.print("<a href=\"home.jsp\"> Accés validé à la page d'accueil </a>");
            
           // Recuperation de de la session en cas de succes
             HttpSession session=request.getSession();
