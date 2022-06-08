@@ -27,7 +27,7 @@ public class WorkAddedSuccessServlet extends HttpServlet {
         
         PrintWriter out=response.getWriter();
         response.setContentType("text/html");
-        out.print("<HTML><BODY>L'oeuvre a été ajoutée avec succès et son identifiant interne incrementale est "+request.getAttribute("indentifiantOeuvre")+"</BR> <a href=\"home\">Retourner à la page d'accueil</a><BODY><HTML>");
+        out.print("<HTML><BODY>L'oeuvre a été ajoutée avec succès et son identifiant interne incrementale est "+request.getAttribute("identifiantOeuvre")+"</BR> <a href=\"home\">Retourner à la page d'accueil</a><BODY><HTML>");
      
    
 
