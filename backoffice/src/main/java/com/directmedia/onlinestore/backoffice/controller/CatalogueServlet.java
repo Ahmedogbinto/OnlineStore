@@ -9,7 +9,7 @@ import com.directmedia.onlinestore.core.entity.Artist;
 import com.directmedia.onlinestore.core.entity.Catalogue;
 import com.directmedia.onlinestore.core.entity.Work;
 import java.io.IOException;
-import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,8 +26,6 @@ public class CatalogueServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-   
-        PrintWriter out=response.getWriter();
         
         if (Catalogue.listOfWork.isEmpty()){
             Artist tomCruise=new Artist("Tom Cruise");
@@ -58,17 +56,11 @@ public class CatalogueServlet extends HttpServlet {
             Catalogue.listOfWork.add(minorityReport);
             Catalogue.listOfWork.add(bad);
             Catalogue.listOfWork.add(leGendarmeDeSaintTropez);
-                }
-
-            out.print("<HTML><BODY><h1>Oeuvres au catalogue</h1></BR></BR></BODY></HTML>");
-
-            for (Work work: Catalogue.listOfWork ){
-              out.println(work.getTitle()+" ("+work.getRelease()+")</BR>");
-        }
+        }  
         
-        out.print("<BODY></BODY>");
-        
-     
+        // Mise en scope "request" de la list des oeuvres du catalogue pour affichage par la jsp catalogue
+            request.setAttribute("listedesoeuvres", Catalogue.listOfWork);
+            RequestDispatcher disp=request.getRequestDispatcher("/catalogue.jsp");
+            disp.forward(request, response);
     }
-
-    }
+}

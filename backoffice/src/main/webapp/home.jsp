@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,13 +16,12 @@
     <body>
         <h1>OnlineStore - Gestion de la boutique</h1>
         
-        <!--Je peux essayer de donner une importance a notre formulaire d'authentification-->
-        <%
-            String login=(String)session.getAttribute("login");
-            if(login!=null)
-            {%>
-            Bonjour ${login} <a href="logout">Déconnexion</a>)<BR/>
-            <%}%>
+        <!--Je peux essayer de donner une importance a notre formulaire d'authentification
+        je veux m'assurer que les informations telsque le login existe en session, donc je dois me connecter avant-->
+        <c:if test="${not empty login}">
+              Bonjour ${login} <a href="logout">Déconnexion</a>)<BR/>
+              </c:if>
+           
             <a href="add-work-form.html">Ajouter une oeuvre au catalogue</a><BR/>
             <a href="catalogue">Acces au catalogue</a><BR/>
          
