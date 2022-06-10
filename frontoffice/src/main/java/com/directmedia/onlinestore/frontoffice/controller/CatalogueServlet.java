@@ -29,7 +29,8 @@ public class CatalogueServlet extends HttpServlet {
    
         PrintWriter out=response.getWriter();
         
-        if (Catalogue.listOfWork.isEmpty()){
+        if (Catalogue.listOfWork.isEmpty())
+        {
             Artist tomCruise=new Artist("Tom Cruise");
             Artist michaelJackson=new Artist("Michael Jackson");
             Artist louisDeFunes=new Artist("Louis De Funes");
@@ -58,17 +59,15 @@ public class CatalogueServlet extends HttpServlet {
             Catalogue.listOfWork.add(minorityReport);
             Catalogue.listOfWork.add(bad);
             Catalogue.listOfWork.add(leGendarmeDeSaintTropez);
-                }
+        }
 
             out.print("<HTML><BODY><h1>Oeuvres au catalogue</h1></BR></BR></BODY></HTML>");
 
-            for (Work work: Catalogue.listOfWork ){
+            for (Work work: Catalogue.listOfWork )
+            {
               out.println("<a href =\"work-details?id="+work.getId()+"\">"+work.getTitle()+" ("+work.getRelease() + ")</a></BR>");
-        }
+            }
         
         out.print("<BODY></BODY>");
-        
-     
-    }
-
-    }
+    }   
+}

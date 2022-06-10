@@ -19,7 +19,7 @@
             String login=(String)session.getAttribute("login");
             if(login!=null)
             {%>
-            Bonjour <%=login%> <a href="logout">Déconnexion</a>)<BR/>
+            Bonjour ${login} <a href="logout">Déconnexion</a>)<BR/>
             <%}%>
             <a href="add-work-form.html">Ajouter une oeuvre au catalogue</a><BR/>
             <a href="catalogue">Acces au catalogue</a><BR/>
