@@ -60,7 +60,7 @@ public class CatalogueServlet extends HttpServlet {
         
         // Mise en scope "request" de la list des oeuvres du catalogue pour affichage par la jsp catalogue
             request.setAttribute("listedesoeuvres", Catalogue.listOfWork);
-            RequestDispatcher disp=request.getRequestDispatcher("/catalogue.jsp");
+            RequestDispatcher disp=request.getRequestDispatcher("/WEB-INF/catalogue.jsp");
             disp.forward(request, response);
     }
 }
