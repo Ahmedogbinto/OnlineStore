@@ -51,10 +51,6 @@ public class WorkDetailsServlet extends HttpServlet {
         disp.forward(request, response);
       
     }
-
-   
-   
-      
- 
-
+    
+    
 }
