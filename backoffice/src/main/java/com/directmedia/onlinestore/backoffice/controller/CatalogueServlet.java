@@ -8,7 +8,9 @@ package com.directmedia.onlinestore.backoffice.controller;
 import com.directmedia.onlinestore.core.entity.Artist;
 import com.directmedia.onlinestore.core.entity.Catalogue;
 import com.directmedia.onlinestore.core.entity.Work;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -57,10 +59,16 @@ public class CatalogueServlet extends HttpServlet {
             Catalogue.listOfWork.add(bad);
             Catalogue.listOfWork.add(leGendarmeDeSaintTropez);
         }  
-        
-        // Mise en scope "request" de la list des oeuvres du catalogue pour affichage par la jsp catalogue
-            request.setAttribute("listedesoeuvres", Catalogue.listOfWork);
+             // On en a plus besoin de ette partie ci dessous, puisqu<on vient de supprimer le fichier catalogue.jsp on veut maintenant recuperer le catalogue avec un JSON
+            // Mise en scope "request" de la list des oeuvres du catalogue pour affichage par la jsp catalogue
+           /* request.setAttribute("listedesoeuvres", Catalogue.listOfWork);
             RequestDispatcher disp=request.getRequestDispatcher("/WEB-INF/catalogue.jsp");
-            disp.forward(request, response);
+            disp.forward(request, response);*/
+           
+           // affichage de la catalogue par automatisation de l<Objet JSON avec la librairie JACKSON
+           ObjectMapper mapper=new ObjectMapper();
+           response.setContentType("application/json");
+           PrintWriter out=response.getWriter();
+           mapper.writeValue(out, Catalogue.listOfWork);
     }
 }

@@ -13,7 +13,12 @@ $(document).ready(function() {
             $.ajax({                                        // requete ajax, a la suite de cette requette Ajax on a:
                 url: "catalogue",
                 success: function(result) {
-                    $("a[href=catalogue]").after('<br>' +result);
+                                                           // $("a[href=catalogue]").after('<br>' +result);
+                   var catalog='';                         // un tableau en JS
+                   result.forEach(function(nextWork){     // forEach va iterer sur le resultat fourni par le serveur (result), donc en Javascript un tableau
+                       catalog=catalog.concat(nextWork.title+" ("+nextWork.release+")<BR/>");
+                   });
+                   $("a[href=catalogue]").after('<BR>' +catalog);
                 }
             });
         }

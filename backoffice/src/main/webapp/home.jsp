@@ -13,7 +13,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Onelinestore - Accueil du back-office</title>
-        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/jquery-3.6.0.min.js"></script>
         <script src="js/application.js"></script>
     </head>
     <body>
