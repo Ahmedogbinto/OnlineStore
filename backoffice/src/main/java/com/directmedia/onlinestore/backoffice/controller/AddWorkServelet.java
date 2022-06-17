@@ -54,7 +54,7 @@ public class AddWorkServelet extends HttpServlet {
                }
             }*/
         
-        // It/ration sur la collection listOfWork en utilisant l'API Stream de Java 8   
+        // Iteration sur la collection listOfWork en utilisant l'API Stream de Java 8   
         Optional<Work> optionalWork=Catalogue.listOfWork.stream().filter(work->work.getTitle().equals(nouvelleOeuvre.getTitle()) && 
                 work.getRelease()==nouvelleOeuvre.getRelease() && work.getMainArtist().getName().equals(nouvelleOeuvre.getMainArtist().getName())).findAny();
              if(optionalWork.isPresent()){

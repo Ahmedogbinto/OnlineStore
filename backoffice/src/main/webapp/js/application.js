@@ -11,7 +11,8 @@ $(document).ready(function() {
         
         if($('body').children().length<6) {                  //  Cette condition pour verifier qu'il n'y avait pas encore de catalogue affichée en dessous. pour ne pas l'afficher deux fois.
             $.ajax({                                        // requete ajax, a la suite de cette requette Ajax on a:
-                url: "rest/catalogue/liste",
+                url: "rest/work",
+                
                 success: function(result) {
                                                            // $("a[href=catalogue]").after('<br>' +result);
                    var catalog='';                         // un tableau en JS
